@@ -1,0 +1,22 @@
+{
+  "name": "nodejsserverdo",
+  "version": "1.0.0",
+  "description": "This is simple node js server for digital ocean.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mujahid7292/NodeJsServerDO.git"
+  },
+  "author": "Saifullah al Mujahid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mujahid7292/NodeJsServerDO/issues"
+  },
+  "homepage": "https://github.com/mujahid7292/NodeJsServerDO#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

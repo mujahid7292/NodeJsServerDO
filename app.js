@@ -1,9 +1,14 @@
 var express = require('express');
 var router = require('./routes/api');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 //Set up express app
 var app = express();
+
+//Connect to MongoDB
+mongoose.connect("mongodb://localhost/user");
+mongoose.Promise = global.Promise;
 
 //Use body-parse middleware
 app.use(bodyParser.json()) //this .json() method will parse request body to json format.

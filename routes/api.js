@@ -1,18 +1,19 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user.js')
+//Here ('../') means go up one folder
 
 router.get('/user',(req,res)=>{
     res.send({Type:"GET"})
 });
 
 router.post('/user',(req,res)=>{
-    receivedData = req.body;
-    console.log(receivedData);
-    res.send({
-        Type:"POST",
-        name: receivedData.name,
-        password:receivedData.password
-    })
+    console.log(req.body);
+    User.create(req.body).then((user)=>{
+        res.send(user);
+    }).catch((err)=>{
+        res.status(422).send(err);
+    });
 });
 
 router.put('/user',(req,res)=>{

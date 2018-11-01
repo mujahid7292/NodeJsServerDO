@@ -6,7 +6,13 @@ router.get('/user',(req,res)=>{
 });
 
 router.post('/user',(req,res)=>{
-    res.send({Type:"POST"})
+    receivedData = req.body;
+    console.log(receivedData);
+    res.send({
+        Type:"POST",
+        name: receivedData.name,
+        password:receivedData.password
+    })
 });
 
 router.put('/user',(req,res)=>{

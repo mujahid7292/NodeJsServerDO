@@ -1,3 +1,7 @@
+//To Start MongoDB in our windows machine run below command in the
+//command line.
+//"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe"
+
 var express = require('express');
 var router = require('./routes/api');
 var bodyParser = require('body-parser');
@@ -6,9 +10,18 @@ var mongoose = require('mongoose');
 //Set up express app
 var app = express();
 
-//Connect to MongoDB
-mongoose.connect("mongodb://localhost/user");
+//Set mongoose property
 mongoose.Promise = global.Promise;
+
+const mongooseOptions = { 
+    keepAlive: 300000, 
+    connectTimeoutMS: 30000,
+    useNewUrlParser: true
+};
+const mongoURL = "mongodb://127.0.0.1:27017/user";
+
+//Connect to MongoDB
+mongoose.connect(mongoURL,mongooseOptions);
 
 //Use body-parse middleware
 app.use(bodyParser.json()) //this .json() method will parse request body to json format.
